@@ -1,0 +1,20 @@
+﻿@model List<Course>
+@{
+    SelectList items = new SelectList(Model,"Id", "Name");
+}
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    function GetInstructor() {
+        var CourseId = document.GetElementById("Course").value;
+        console.log(CourseId);
+        $.ajax(url: "/Instructor/JsonListOfInstructor/" + CourseId, success: function (result)=> {
+            document.GetElementById("instructor").innerHtml = "";
+            for(let instr of result) {
+                document.GetElementById("instructor").innerHtml += "<option value= " + instr.Id + ">" + instr.Name " </option>";
+            }
+        });
+    }
+</script>
+<select id="Course" name="Course" asp-items="items" onchange="GetInstructor()"></select>
+<select id="instructor"></select>

@@ -1,0 +1,22 @@
+﻿<form action="/trainee/SaveAdd" method="Post">
+    <div>
+        <label>Name</label>
+        <input type="text" name="Name" class="form-control" />
+    </div>
+    <div>
+        <label>Address</label>
+        <input type="text" name="Address" class="form-control" />
+    </div>
+
+    <div>
+        <label for="department">Choose a department:</label>
+
+        <select id="department" name="DepartmentId" class="form-select" aria-label="Default select example">
+            @foreach (Departrment department in ViewBag.departrments)
+            {
+                <option value="@department.Id">@department.Name</option>   
+            }
+        </select>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Create" />
+</form>

@@ -1,0 +1,11 @@
+﻿@model ShowStudentResultViewModel
+<h1>@Model.Name</h1>
+<h2>@Model.Results.Count</h2>
+@foreach(var reslt in Model.Results)
+{
+    <div style="background-color: @reslt.Color">
+        <h2>@reslt.Cours</h2>
+        <h2>@reslt.Grade</h2>
+        <br>
+    </div>
+}

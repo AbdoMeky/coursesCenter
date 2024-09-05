@@ -1,0 +1,4 @@
+﻿@model CourseResult
+<div>
+    <p>course result of student @Model.Traine.Name in Course @Model.Course.Name in Id of result you search is @Model.Degree   <a asp-action="Edit" asp-controller="CourseResult" asp-route-Id="@Model.Id" class="btn btn-primary">Edit</a><a asp-action="Delete" asp-controller="CourseResult" asp-route-Id="@Model.Id" class="btn btn-primary">Delete</a></p>
+</div>

@@ -1,0 +1,10 @@
+﻿@model CourseResultOfTraineInOneCourseViewModels
+<div>
+    <h2>the traine @Model.TraineName have results in @Model.CourseName Course</h2>
+    <ul>
+    @foreach(int result in Model.results)
+    {
+        <li>Grade : @result</li>
+    }
+    </ul>
+</div>

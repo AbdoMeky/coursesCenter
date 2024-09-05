@@ -1,0 +1,29 @@
+﻿<form action="/trainee/SaveEdit/@ViewBag.traine.Id" method="Post">
+    <div>
+        <label>Name</label>
+        <input type="text" value="@ViewBag.traine.Name" name="Name" class="form-control" />
+    </div>
+    <div>
+        <label>Address</label>
+        <input type="text" value="@ViewBag.traine.Address" name="Address" class="form-control" />
+    </div>
+
+    <div>
+        <label for="department">Choose a department:</label>
+
+        <select id="department" name="DepartmentId" class="form-select" aria-label="Default select example">
+            @foreach (Departrment department in ViewBag.departments)
+            {
+                if (department.Id == ViewBag.traine.DepartmentId)
+                {
+                    <option value="@department.Id" selected>@department.Name</option>
+                }
+                else
+                {
+                    <option value="@department.Id">@department.Name</option>
+                }
+            }
+        </select>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Edit" />
+</form>

@@ -1,0 +1,14 @@
+﻿@using coursesCenter.Models.entities
+@model List<DepartmentsWithCourses>  
+@foreach(var departmentsWithCourses in Model)
+{
+    <h2> Courses in @departmentsWithCourses.Department department is :</h2>
+    <ul>
+        @foreach(var curs in departmentsWithCourses.Courses)
+        {
+            <li style="margin:10px">@curs <a asp-action="GetOneCourseByName" asp-controller="Course" asp-route-Name="@curs" class="btn btn-primary">Details</a> <a asp-action="Edit" asp-controller="Course" asp-route-Name="@curs" class="btn btn-primary">Edit</a> <a asp-action="Delete" asp-controller="Course" asp-route-Name="@curs" class="btn btn-primary">Delete</a></li>
+        }
+    </ul>
+}
+<a asp-action="CoursesWithDeletedDepartment" asp-controller="Course" class="btn btn-primary">Courses with no department</a>
+<a asp-action="Add" asp-controller="Course" class="btn btn-primary">Add</a>

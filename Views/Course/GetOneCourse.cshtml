@@ -1,0 +1,15 @@
+﻿@using coursesCenter.Models.entities
+@model Course
+<h2>@Model.Name</h2>
+<ul>
+    <li>Degree :@Model.Degree</li>
+    <li>Min Degree :@Model.MinDegree</li>
+    <li>Department :@{
+            if (Model.DepartmentId == null)
+            {
+                <span>No Department</span>
+            }else{
+                <span>@Model.Departrment.Name</span>
+            }
+        }</li>
+</ul>

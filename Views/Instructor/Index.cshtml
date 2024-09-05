@@ -1,0 +1,9 @@
+﻿@model List<Instructor>
+<div>
+    <h2>Instructors :</h2>
+    @foreach(var instructor in Model)
+    {
+        <p>@instructor.Name <a asp-action="Details" asp-controller="Instructor" asp-route-Id="@instructor.Id" class="btn btn-primary">Details</a><a style="margin:5px" asp-action="Edit" asp-controller="Instructor" asp-route-Id="@instructor.Id" class="btn btn-primary">Edit</a> <a asp-action="Delete" asp-controller="Instructor" asp-route-Id="@instructor.Id" class="btn btn-primary">Delete</a></p>
+    }
+    <a asp-action="Add" asp-controller="Instructor" class="btn btn-primary">Add</a>
+</div>

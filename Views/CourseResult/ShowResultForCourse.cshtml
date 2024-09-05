@@ -1,0 +1,10 @@
+﻿@model CourseResultForCourseViewModel
+<div>
+    <h2>results in Course @Model.CourseName is :</h2>
+    <ul>
+        @foreach (var result in Model.results)
+        {
+            <li>degree of @result.Name is @result.Degree</li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,5 @@
+﻿@model string
+<form asp-action="DeleteCourse" asp-controller="Course" method="Post" asp-route-Name="@Model">
+    <p>do you sure you wanna delete this course @Model</p>
+    <input type="submit" class="btn btn-primary" value="Delete" />
+</form>

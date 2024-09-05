@@ -1,0 +1,24 @@
+﻿@model Departrment
+<div>
+    <h2>@Model.Name</h2>
+    <h4>courses there :</h4>
+    <ul>
+        @foreach(var course in Model.Courses){
+        <li>@course.Name</li>
+        }
+    </ul>
+    <p3>instructor there:</p3>
+    <ul>
+        @foreach(var instructor in Model.Instructors)
+        {
+            <li>@instructor.Name</li>
+        }
+    </ul>
+    <p3>traine there :</p3>
+    <ul>
+        @foreach(var traine in Model.Traines)
+        {
+            <li>@traine.Name</li>
+        }
+    </ul>
+</div>

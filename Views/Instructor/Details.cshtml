@@ -1,0 +1,17 @@
+﻿@model Instructor
+<div>
+    <h2>@Model.Name</h2>
+    <p>Address: @Model.Address</p>
+    <p>salary: @Model.Salary</p>
+    <p>Course: @Model.Course.Name</p>
+    <p>Department: @{
+            if (Model.Departrment != null)
+            {
+                <span>@Model.Departrment.Name</span>
+            }
+            else
+            {
+                <span>his department is deleted</span>
+            }
+        }</p>
+</div>

@@ -1,0 +1,21 @@
+﻿@model List<TraineDepartmentViewModel>
+<h1>our traines is</h1>
+<ul>
+    @foreach (var traine in Model)
+    {
+        <li>
+            <div>
+                <h3>@traine.Name</h3>
+                <p>@traine.Department</p>
+                <p>Courses he take :</p>
+                <ul>
+                    @foreach(string curs in traine.Courses)
+                    { 
+                        <li>@curs</li>
+                    }
+                </ul>
+                <a asp-action="GetResultOfOne" asp-controller="Trainee" asp-route-Id="@traine.Id" class="btn btn-primary">Results</a>
+            </div>
+        </li>
+    }
+</ul>

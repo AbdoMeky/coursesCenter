@@ -1,0 +1,12 @@
+﻿@model CourseResult
+@if (Model == null)
+{
+    <h2> you already delete this result</h2>
+}
+else{
+    <form method="post" asp-action="Delete" asp-route-Id="@Model.Id" asp-controller="CourseResult">
+        <h3>do you wanna delete this result of @Model.Traine.Name in @Model.Course.Name course</h3>
+        <input type="submit" value="Delete" class="btn btn-primary" />
+        <div><a asp-action="OptionsPage" asp-controller="CourseResult" class="btn btn-primary">Cancel</a></div>
+    </form>
+}

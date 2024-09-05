@@ -1,0 +1,195 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = coursesCenter
+build_property.RootNamespace = coursesCenter
+build_property.ProjectDir = E:\university\MVC\Day2-20240625T204714Z-001\coursesCenter\coursesCenter\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\university\MVC\Day2-20240625T204714Z-001\coursesCenter\coursesCenter
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Account/LogIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dJbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Account/RegisterTraine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RlclRyYWluZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/OptionsPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XE9wdGlvbnNQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/SearchByCourseId.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XFNlYXJjaEJ5Q291cnNlSWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/SearchByCourseIdAndTraine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XFNlYXJjaEJ5Q291cnNlSWRBbmRUcmFpbmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/SearchById.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XFNlYXJjaEJ5SWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/showCourseResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XHNob3dDb3Vyc2VSZXN1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/ShowCourseResultByCourseIdAndTraine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XFNob3dDb3Vyc2VSZXN1bHRCeUNvdXJzZUlkQW5kVHJhaW5lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/ShowResultForCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XFNob3dSZXN1bHRGb3JDb3Vyc2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Course/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Course/allCourses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXGFsbENvdXJzZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Course/CoursesWithDeletedDepartment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXENvdXJzZXNXaXRoRGVsZXRlZERlcGFydG1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Course/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Course/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Course/GetOneCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEdldE9uZUNvdXJzZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Course/ShowInstructorInCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXFNob3dJbnN0cnVjdG9ySW5Db3Vyc2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Department/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Department/AllDepartments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxBbGxEZXBhcnRtZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Department/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Department/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Department/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Instructor/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Instructor/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Instructor/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Instructor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Instructor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Role/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Shared/_AdvancedLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZHZhbmNlZExheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/TraineAccount/RegisterTraine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lQWNjb3VudFxSZWdpc3RlclRyYWluZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Trainee/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZVxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Trainee/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Trainee/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Trainee/GetResultOfOne.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZVxHZXRSZXN1bHRPZk9uZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Trainee/traineAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZVx0cmFpbmVBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-b4rxz1f0ai

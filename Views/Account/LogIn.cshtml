@@ -1,0 +1,20 @@
+﻿@model logInTraineViewModel
+<form asp-action="" asp-controller="" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="EmailAddress"></label>
+        <input asp-for="EmailAddress"/>
+        <span asp-validation-for="EmailAddress"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label asp-for="RememberMe"></label>
+        <input asp-for="RememberMe" />
+        <span asp-validation-for="RememberMe"></span>
+    </div>
+    <input type="submit" value="Log in"/>
+</form>

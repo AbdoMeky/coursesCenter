@@ -1,0 +1,61 @@
+﻿@model Instructor
+@{
+    SelectList deptlist = new SelectList(ViewBag.departments, "Id", "Name");
+    SelectList crslist = new SelectList(ViewBag.courses,"Id","Name");
+}
+<form asp-action="Add" asp-controller="Instructor" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Salary"></label>
+        <input asp-for="Salary" class="form-control" />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="DepartmentId"></label>
+        <select asp-for="DepartmentId" id="daptId" asp-items="deptlist" onchange="GetCourse()" class="form-select" aria-label="Default select example">
+            <option value="0">--select course--</option>
+        </select>
+        <span asp-validation-for="DepartmentId" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="CourseId"></label>
+        <select id="CrseId" asp-for="CourseId" asp-items="@crslist" class="form-select" aria-label="Default select example">
+            <option value="0">--Select Course--</option>
+        </select>
+        <span asp-validation-for="CourseId" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Add" class="btn btn-primary" />
+</form>
+@section scriptat{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        function GetCourse() {
+            var departmentId = document.getElementById("daptId").value;
+            $.ajax(
+                { 
+                    url: "/Course/GetCoursesInDepartment?deptId=" + departmentId,
+                    success : function(result){
+                        document.getElementById("CrseId").innerHTML = "<option value=\"0\">--Select Course--</option>";
+                        for (let i = 0; i < result.length; i++) {
+                            let course = result[i];
+                            console.log(course.id + " " + course.name);
+                            document.getElementById("CrseId").innerHTML += "<option value=\"" + course.id + "\">" + course.name + "</option>";
+                        }
+                    }
+                }
+            )
+        }
+    </script>
+}

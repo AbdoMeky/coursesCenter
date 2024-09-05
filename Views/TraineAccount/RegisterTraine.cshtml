@@ -1,0 +1,25 @@
+﻿@model RegisterTraineViewModel
+<form asp-action="RegisterTraine" asp-controller="Account" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="EmailAddress"></label>
+        <input asp-for="EmailAddress" />
+        <span asp-validation-for="EmailAddress"></span>
+    </div>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label asp-for="ConfirmPassword"></label>
+        <input asp-for="ConfirmPassword" />
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <input type="submit" value="registe" />
+</form>

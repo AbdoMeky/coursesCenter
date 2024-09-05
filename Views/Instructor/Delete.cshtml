@@ -1,0 +1,5 @@
+﻿@model Instructor
+<form asp-action="DeleteI" asp-route-Id="@Model.Id" asp-controller="Instructor">
+    <h3>do you sure you wanna delete Instructor @Model.Name</h3>
+    <input type="submit" value="Delete"/>
+</form>
