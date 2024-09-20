@@ -49,14 +49,57 @@
             </a>
 
             <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a asp-action="Index" asp-controller="Home">Home</a></li>
-                    <li><a asp-action="Index" asp-controller="Department">Departments</a></li>
-                    <li><a asp-action="Index" asp-controller="Instructor">Instructor</a></li>
-                    <li><a asp-action="Index" asp-controller="Course">Courses</a></li>
-                    <li><a asp-action="Index" asp-controller="Trainee">Traines</a></li>
-                    <li><a asp-action="OptionsPage" asp-controller="CourseResult">Results</a></li>
-                </ul>
+                @{
+                    if (!User.Identity.IsAuthenticated)
+                    {
+                        <ul>
+                            <li><a asp-action="LogIn" asp-controller="Account">Log In</a></li>
+                        </ul>
+                    }
+                    else
+                    {
+                        if (User.IsInRole("Manager"))
+                        {
+                            <ul>
+                                <li><a asp-action="Index" asp-controller="Home">Home</a></li><!---->
+                                <li><a asp-action="Index" asp-controller="Department">Departments</a></li><!---->
+                                <li><a asp-action="Index" asp-controller="Instructor">Instructor</a></li><!---->
+                                <li><a asp-action="Index" asp-controller="Course">Courses</a></li><!---->
+                                <li><a asp-action="Index" asp-controller="Trainee">Traines</a></li><!---->
+                                <li><a asp-action="OptionsPage" asp-controller="CourseResult">Results</a></li><!---->
+                                <li><a asp-action="" asp-controller=""></a></li>
+                                <li><a asp-action="LogOut" asp-controller="Account">Log Out</a></li>
+                            </ul>
+                        }
+                        else if (User.IsInRole("Instructor"))
+                        {
+                            <ul>
+                                <li><a asp-action="Index" asp-controller="Home">Home</a></li><!---->
+                                <li><a asp-action="IndexBeta" asp-controller="Department">Departments</a></li><!---->
+                                <li><a asp-action="IndexBeta" asp-controller="Instructor">Instructor</a></li><!---->
+                                <li><a asp-action="IndexBeta" asp-controller="Course">Courses</a></li><!---->
+                                <li><a asp-action="Index" asp-controller="Trainee">Traines</a></li><!---->
+                                <li><a asp-action="OptionsPage" asp-controller="CourseResult">Results</a></li><!---->
+                                <li><a asp-action="LogOut" asp-controller="Account">Log Out</a></li>
+                            </ul>
+                        }
+                        else if (User.IsInRole("Traine")){
+                        
+                            <ul>
+                                <li><a asp-action="Index" asp-controller="Home">Home</a></li><!---->
+                                <li><a asp-action="IndexBeta" asp-controller="Department">Departments</a></li><!---->
+                                <li><a asp-action="IndexBeta" asp-controller="Instructor">Instructor</a></li><!---->
+                                <li><a asp-action="IndexBeta" asp-controller="Course">Courses</a></li><!---->
+                                <li><a asp-action="OptionsPageBeta" asp-controller="CourseResult">Results</a></li><!---->
+                                <li><a asp-action="LogOut" asp-controller="Account">Log Out</a></li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <a asp-action="LogOut" asp-controller="Account">Log Out</a>
+                        }
+                    }
+                }
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
@@ -70,6 +113,10 @@
             <div class="container position-relative">
                 <h1>Home Page</h1>
                 <p>Welcome to MekyCenter</p>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <p>@User.Identity.Name</p>
+                }
             </div>
         </div><!-- End Page Title -->
         <!-- Starter Section Section -->

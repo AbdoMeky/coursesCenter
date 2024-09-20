@@ -10,7 +10,9 @@ namespace coursesCenter.Repository
 
         public void Delete(int id)
         {
-            var instructor=GetById(id);
+            var instructor=Context.instructors.Include(x=>x.ApplicationUser).FirstOrDefault(x=>x.Id==id);
+            var user=Context.Users.FirstOrDefault(u => u.Id==instructor.ApplicationUser.Id);
+            Context.Users.Remove(user);
             Context.instructors.Remove(instructor);
             Context.SaveChanges();
             return;

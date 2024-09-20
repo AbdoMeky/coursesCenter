@@ -2,6 +2,7 @@
 using coursesCenter.Models.entities;
 using coursesCenter.Repository;
 using coursesCenter.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -11,6 +12,7 @@ using System.Linq;
 
 namespace coursesCenter.Controllers
 {
+    [Authorize(Roles = "Manager,Instructor")]
     public class TraineeController : Controller
     {
         ITraineRepository TraineRepo;

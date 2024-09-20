@@ -15,6 +15,7 @@ builder.Services.AddScoped<IDepartmentRepositorty, DepartmentRepository>();
 builder.Services.AddScoped<IInstructorRepository, InstructorRepository>();
 builder.Services.AddScoped<ITraineRepository, TraineRepository>();
 builder.Services.AddScoped<ICourseResultRepository, CourseResultRepository>();
+builder.Services.AddScoped<IManagerRepository, ManagerRepository>();
 builder.Services.AddIdentity<ApplicationUser, IdentityRole<int>>().AddRoles<IdentityRole<int>>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
 var app = builder.Build();

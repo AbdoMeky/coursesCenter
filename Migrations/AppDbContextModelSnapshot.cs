@@ -346,6 +346,45 @@ namespace coursesCenter.Migrations
                     b.ToTable("Instructors", (string)null);
                 });
 
+            modelBuilder.Entity("coursesCenter.Models.entities.Manager", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR");
+
+                    b.Property<int>("ApplicationUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("VARCHAR");
+
+                    b.Property<decimal>("Salary")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId")
+                        .IsUnique();
+
+                    b.HasIndex("DepartmentId")
+                        .IsUnique()
+                        .HasFilter("[DepartmentId] IS NOT NULL");
+
+                    b.ToTable("Managers", (string)null);
+                });
+
             modelBuilder.Entity("coursesCenter.Models.entities.Traine", b =>
                 {
                     b.Property<int>("Id")
@@ -509,6 +548,24 @@ namespace coursesCenter.Migrations
                     b.Navigation("Departrment");
                 });
 
+            modelBuilder.Entity("coursesCenter.Models.entities.Manager", b =>
+                {
+                    b.HasOne("coursesCenter.Models.ApplicationUser", "ApplicationUser")
+                        .WithOne("Manager")
+                        .HasForeignKey("coursesCenter.Models.entities.Manager", "ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("coursesCenter.Models.entities.Departrment", "Departrment")
+                        .WithOne("Manager")
+                        .HasForeignKey("coursesCenter.Models.entities.Manager", "DepartmentId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Departrment");
+                });
+
             modelBuilder.Entity("coursesCenter.Models.entities.Traine", b =>
                 {
                     b.HasOne("coursesCenter.Models.ApplicationUser", "ApplicationUser")
@@ -550,6 +607,8 @@ namespace coursesCenter.Migrations
                 {
                     b.Navigation("Instructor");
 
+                    b.Navigation("Manager");
+
                     b.Navigation("Traine");
                 });
 
@@ -567,6 +626,8 @@ namespace coursesCenter.Migrations
                     b.Navigation("Courses");
 
                     b.Navigation("Instructors");
+
+                    b.Navigation("Manager");
 
                     b.Navigation("Traines");
                 });

@@ -7,6 +7,7 @@ namespace coursesCenter.Models.entities
         [Required]
         [UniqueDepartmentName]
         public string Name { get; set; }
+        public Manager? Manager { get; set; }
         public ICollection<Course>Courses { get; set; }
         public ICollection<Instructor>Instructors { get; set; }
         public ICollection<Traine>Traines { get; set; }

@@ -1,7 +1,11 @@
 ﻿using coursesCenter.Models;
 using coursesCenter.ViewModels;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using System.Diagnostics.Eventing.Reader;
 
 namespace coursesCenter.Controllers
 {
@@ -23,24 +27,49 @@ namespace coursesCenter.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> LogIn(logInTraineViewModel logInTraine) 
+        public async Task<ActionResult> LogIn(logInViewModel logInUser)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                ApplicationUser user = await userManager.FindByEmailAsync(logInTraine.EmailAddress);
+                // Find the user by email
+                ApplicationUser user = await userManager.FindByEmailAsync(logInUser.EmailAddress);
                 if (user != null)
                 {
-                    bool found =await userManager.CheckPasswordAsync(user, logInTraine.Password);
+                    // Check if the password is correct
+                    bool found = await userManager.CheckPasswordAsync(user, logInUser.Password);
                     if (found)
                     {
-                        await signInManager.SignInAsync(user, logInTraine.RememberMe);
+                        var roles = await userManager.GetRolesAsync(user);
+                        var claims = new List<Claim>
+                        {
+                            new Claim(ClaimTypes.Name, user.UserName),
+                            new Claim(ClaimTypes.NameIdentifier,user.Id.ToString())
+                        };
+                        foreach (var role in roles)
+                        {
+                            claims.Add(new Claim(ClaimTypes.Role, role));
+                        }
+
+                        // Create a ClaimsIdentity
+                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        // Create a ClaimsPrincipal
+                        var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+                        // Sign in the user with the claimsPrincipal which includes the user ID in the cookie
+                        await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, claimsPrincipal, new AuthenticationProperties
+                        {
+                            IsPersistent = logInUser.RememberMe
+                        });
+
                         return RedirectToAction("Index", "Home");
                     }
-                    ModelState.AddModelError("", "email or password is not valid");
                 }
             }
-            return View("LogIn", logInTraine);
+
+            // If login failed, show error message
+            ModelState.AddModelError("", "Email or password is not valid");
+            return View("LogIn", logInUser);
         }
+
         [HttpGet]
         public async Task<ActionResult> LogOut() 
         { 

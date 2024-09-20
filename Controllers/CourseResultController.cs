@@ -1,8 +1,10 @@
 ﻿using coursesCenter.Models.entities;
 using coursesCenter.Repository;
 using coursesCenter.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using System.Security.Claims;
 
 namespace coursesCenter.Controllers
 {
@@ -27,14 +29,21 @@ namespace coursesCenter.Controllers
             }
             return Json(false);
         }
+        [Authorize(Roles = "Manager,Instructor")]
         public ActionResult OptionsPage()
         {
             return View("OptionsPage");
         }
+        public ActionResult OptionsPageBeta()
+        {
+            return View("OptionPageBeta");
+        }
+        [Authorize(Roles = "Manager,Instructor")]
         public ActionResult SearchById()
         {
             return View("SearchById");
         }
+        [Authorize(Roles = "Manager,Instructor")]
         public ActionResult ShowCourseResultById(int Id)
         {
             CourseResult result = CourseResultRepo.GetById(Id);
@@ -44,10 +53,12 @@ namespace coursesCenter.Controllers
             }
             return View("showCourseResult", result);
         }
+        [Authorize(Roles = "Manager,Instructor")]
         public ActionResult SearchByCourseIdAndTraine()
         {
             return View("SearchByCourseIdAndTraine");
         }
+        [Authorize(Roles = "Manager,Instructor")]
         public ActionResult ShowCourseResultByCourseIdAndTraine(int CourseId,int TraineId)
         {
             CourseResultOfTraineInOneCourseViewModels modelResult = new CourseResultOfTraineInOneCourseViewModels();
@@ -64,12 +75,18 @@ namespace coursesCenter.Controllers
             }
             return View("ShowCourseResultByCourseIdAndTraine", modelResult);
         }
-
-
+        public ActionResult AllResultOfOne()
+        {
+            string val = (User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            var results=TraineRepo.AllResultOfOne(int.Parse(val)); 
+            return View("AllResultOfOne",results);
+        }
+        [Authorize(Roles = "Manager,Instructor")]
         public ActionResult SearchByCourseId()
         {
             return View("SearchByCourseId");
         }
+        [Authorize(Roles = "Manager,Instructor")]
         public ActionResult ShowResultForCourse(int CourseId)
         {
             CourseResultForCourseViewModel modelResult = new CourseResultForCourseViewModel();
@@ -86,6 +103,7 @@ namespace coursesCenter.Controllers
             return View("ShowResultForCourse",modelResult);
         }
         [HttpGet]
+        [Authorize(Roles = "Manager,Instructor")]
         public ActionResult Add()
         {
             ViewBag.department=DepartmentRepo.GetAll();
@@ -95,6 +113,7 @@ namespace coursesCenter.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Manager,Instructor")]
         public ActionResult Add(CourseResult result)
         {
             if (ModelState.IsValid)
@@ -119,6 +138,7 @@ namespace coursesCenter.Controllers
             return View("Add", result);
         }
         [HttpGet]
+        [Authorize(Roles = "Manager,Instructor")]
         public ActionResult Edit(int Id) {
             var result =CourseResultRepo.GetById(Id);
             ViewBag.department = DepartmentRepo.GetAll();
@@ -128,6 +148,7 @@ namespace coursesCenter.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Manager,Instructor")]
         public ActionResult Edit(CourseResult result) {
             if (ModelState.IsValid)
             {
@@ -151,11 +172,13 @@ namespace coursesCenter.Controllers
             return View("Edit", result);
         }
         [HttpGet]
+        [Authorize(Roles = "Manager,Instructor")]
         public ActionResult Delete(int id) {
             return View("Delete",CourseResultRepo.GetById(id));
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Manager,Instructor")]
         public ActionResult Delete(CourseResult result) {
             var resultDB = CourseResultRepo.GetById(result.Id);
             CourseResultRepo.Delete(result.Id);

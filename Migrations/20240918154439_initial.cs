@@ -194,6 +194,35 @@ namespace coursesCenter.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Managers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "VARCHAR(60)", maxLength: 60, nullable: false),
+                    Salary = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Address = table.Column<string>(type: "VARCHAR(100)", maxLength: 100, nullable: false),
+                    DepartmentId = table.Column<int>(type: "int", nullable: true),
+                    ApplicationUserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Managers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Managers_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Managers_Departments_DepartmentId",
+                        column: x => x.DepartmentId,
+                        principalTable: "Departments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Traines",
                 columns: table => new
                 {
@@ -202,11 +231,18 @@ namespace coursesCenter.Migrations
                     Name = table.Column<string>(type: "VARCHAR(60)", maxLength: 60, nullable: false),
                     Address = table.Column<string>(type: "VARCHAR(100)", maxLength: 100, nullable: false),
                     Level = table.Column<int>(type: "int", nullable: false),
-                    DepartmentId = table.Column<int>(type: "int", nullable: true)
+                    DepartmentId = table.Column<int>(type: "int", nullable: true),
+                    ApplicationUserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Traines", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Traines_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Traines_Departments_DepartmentId",
                         column: x => x.DepartmentId,
@@ -225,11 +261,18 @@ namespace coursesCenter.Migrations
                     Salary = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Address = table.Column<string>(type: "VARCHAR(100)", maxLength: 100, nullable: false),
                     CourseId = table.Column<int>(type: "int", nullable: true),
-                    DepartmentId = table.Column<int>(type: "int", nullable: true)
+                    DepartmentId = table.Column<int>(type: "int", nullable: true),
+                    ApplicationUserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Instructors", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Instructors_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Instructors_Courses_CourseId",
                         column: x => x.CourseId,
@@ -251,6 +294,8 @@ namespace coursesCenter.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Degree = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    DepartmentId = table.Column<int>(type: "int", nullable: true),
+                    DepartrmentId = table.Column<int>(type: "int", nullable: true),
                     CourseId = table.Column<int>(type: "int", nullable: false),
                     TraineId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -264,7 +309,36 @@ namespace coursesCenter.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
+                        name: "FK_CourseResults_Departments_DepartrmentId",
+                        column: x => x.DepartrmentId,
+                        principalTable: "Departments",
+                        principalColumn: "Id");
+                    table.ForeignKey(
                         name: "FK_CourseResults_Traines_TraineId",
+                        column: x => x.TraineId,
+                        principalTable: "Traines",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TraineCourses",
+                columns: table => new
+                {
+                    CourseId = table.Column<int>(type: "int", nullable: false),
+                    TraineId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TraineCourses", x => new { x.TraineId, x.CourseId });
+                    table.ForeignKey(
+                        name: "FK_TraineCourses_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TraineCourses_Traines_TraineId",
                         column: x => x.TraineId,
                         principalTable: "Traines",
                         principalColumn: "Id",
@@ -316,6 +390,11 @@ namespace coursesCenter.Migrations
                 column: "CourseId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CourseResults_DepartrmentId",
+                table: "CourseResults",
+                column: "DepartrmentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CourseResults_TraineId",
                 table: "CourseResults",
                 column: "TraineId");
@@ -326,6 +405,12 @@ namespace coursesCenter.Migrations
                 column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Instructors_ApplicationUserId",
+                table: "Instructors",
+                column: "ApplicationUserId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Instructors_CourseId",
                 table: "Instructors",
                 column: "CourseId");
@@ -334,6 +419,30 @@ namespace coursesCenter.Migrations
                 name: "IX_Instructors_DepartmentId",
                 table: "Instructors",
                 column: "DepartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Managers_ApplicationUserId",
+                table: "Managers",
+                column: "ApplicationUserId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Managers_DepartmentId",
+                table: "Managers",
+                column: "DepartmentId",
+                unique: true,
+                filter: "[DepartmentId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TraineCourses_CourseId",
+                table: "TraineCourses",
+                column: "CourseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Traines_ApplicationUserId",
+                table: "Traines",
+                column: "ApplicationUserId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Traines_DepartmentId",
@@ -366,16 +475,22 @@ namespace coursesCenter.Migrations
                 name: "Instructors");
 
             migrationBuilder.DropTable(
+                name: "Managers");
+
+            migrationBuilder.DropTable(
+                name: "TraineCourses");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Courses");
 
             migrationBuilder.DropTable(
                 name: "Traines");
 
             migrationBuilder.DropTable(
-                name: "Courses");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Departments");

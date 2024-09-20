@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("coursesCenter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+50e2f762dca26167dff4ceaacf13211cc6295526")]
 [assembly: System.Reflection.AssemblyProductAttribute("coursesCenter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("coursesCenter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

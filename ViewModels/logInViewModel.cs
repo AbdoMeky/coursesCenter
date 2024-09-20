@@ -2,7 +2,7 @@
 
 namespace coursesCenter.ViewModels
 {
-    public class logInTraineViewModel
+    public class logInViewModel
     {
         [DataType(DataType.EmailAddress)]
         [Required]

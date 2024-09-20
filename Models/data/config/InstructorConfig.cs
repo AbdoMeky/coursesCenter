@@ -19,7 +19,7 @@ namespace coursesCenter.Models.data.config
                 WithMany(x => x.Instructors).
                 HasForeignKey(x => x.DepartmentId).
                 OnDelete(DeleteBehavior.SetNull);
-            builder.HasOne(x => x.ApplicationUser).WithOne(x => x.Instructor).HasForeignKey<Instructor>(x =>x.ApplicationUserId).OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(x => x.ApplicationUser).WithOne(x => x.Instructor).HasForeignKey<Instructor>(x =>x.ApplicationUserId).OnDelete(DeleteBehavior.Cascade).IsRequired();
             builder.ToTable("Instructors");
 
         }

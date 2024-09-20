@@ -26,12 +26,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/AllResultOfOne.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XEFsbFJlc3VsdE9mT25lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/CourseResultForOne.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XENvdXJzZVJlc3VsdEZvck9uZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/OptionPageBeta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlUmVzdWx0XE9wdGlvblBhZ2VCZXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/CourseResult/OptionsPage.cshtml]
@@ -86,6 +98,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEdldE9uZUNvdXJzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Course/IndexBeta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEluZGV4QmV0YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Course/ShowInstructorInCourse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXFNob3dJbnN0cnVjdG9ySW5Db3Vyc2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -110,12 +126,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Department/emptyBeta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxlbXB0eUJldGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/InstructorAccount/RegisterInstructor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvckFjY291bnRcUmVnaXN0ZXJJbnN0cnVjdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Instructor/Add.cshtml]
@@ -136,6 +160,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Instructor/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Instructor/IndexBeta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdHJ1Y3RvclxJbmRleEJldGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/ManagerAccount/RegisterManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlckFjY291bnRcUmVnaXN0ZXJNYW5hZ2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/university/MVC/Day2-20240625T204714Z-001/coursesCenter/coursesCenter/Views/Role/Add.cshtml]

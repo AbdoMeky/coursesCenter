@@ -1,8 +1,8 @@
-﻿@model RegisterTraineViewModel
+﻿@model RegisterManagerViewModel
 @{
-    SelectList deptList = new SelectList(ViewBag.department, "Id", "Name");
+    SelectList deptLlist = new SelectList(ViewBag.department, "Id", "Name");
 }
-<form asp-action="RegisterTraine" asp-controller="TraineAccount" method="post">
+<form asp-action="RegisterManager" asp-controller="ManagerAccount" method="post">
     <div asp-validation-summary="All"></div>
     <div>
         <label asp-for="EmailAddress"></label>
@@ -20,20 +20,16 @@
         <span asp-validation-for="Address"></span>
     </div>
     <div>
-        <label asp-for="Level"></label>
-        <select asp-for="Level">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <span asp-validation-for="Level"></span>
+        <label asp-for="Salary"></label>
+        <input asp-for="Salary" />
+        <span asp-validation-for="Salary"></span>
     </div>
     <div>
         <label asp-for="DepartmentId"></label>
-        <select asp-for="DepartmentId" asp-items="deptList"></select>
-        <span asp-validation-for="DepartmentId"></span>
+        <select asp-for="DepartmentId" id="daptId" asp-items="deptLlist" onchange="GetCourse()" class="form-select" aria-label="Default select example">
+            <option value="0">--select course--</option>
+        </select>
+        <span asp-validation-for="DepartmentId" class="text-danger"></span>
     </div>
     <div>
         <label asp-for="Password"></label>

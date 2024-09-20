@@ -12,8 +12,8 @@ using coursesCenter.Models.data;
 namespace coursesCenter.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240831085404_addDepartmentIdToCourseResultTable")]
-    partial class addDepartmentIdToCourseResultTable
+    [Migration("20240918181039_modify1")]
+    partial class modify1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -320,6 +320,9 @@ namespace coursesCenter.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("VARCHAR");
 
+                    b.Property<int>("ApplicationUserId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("CourseId")
                         .HasColumnType("int");
 
@@ -336,11 +339,53 @@ namespace coursesCenter.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApplicationUserId")
+                        .IsUnique();
+
                     b.HasIndex("CourseId");
 
                     b.HasIndex("DepartmentId");
 
                     b.ToTable("Instructors", (string)null);
+                });
+
+            modelBuilder.Entity("coursesCenter.Models.entities.Manager", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR");
+
+                    b.Property<int>("ApplicationUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("VARCHAR");
+
+                    b.Property<decimal>("Salary")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId")
+                        .IsUnique();
+
+                    b.HasIndex("DepartmentId")
+                        .IsUnique()
+                        .HasFilter("[DepartmentId] IS NOT NULL");
+
+                    b.ToTable("Managers", (string)null);
                 });
 
             modelBuilder.Entity("coursesCenter.Models.entities.Traine", b =>
@@ -356,6 +401,9 @@ namespace coursesCenter.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("VARCHAR");
 
+                    b.Property<int>("ApplicationUserId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("DepartmentId")
                         .HasColumnType("int");
 
@@ -369,9 +417,27 @@ namespace coursesCenter.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApplicationUserId")
+                        .IsUnique();
+
                     b.HasIndex("DepartmentId");
 
                     b.ToTable("Traines", (string)null);
+                });
+
+            modelBuilder.Entity("coursesCenter.Models.entities.TraineCourse", b =>
+                {
+                    b.Property<int>("TraineId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TraineId", "CourseId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("TraineCourses", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -462,6 +528,12 @@ namespace coursesCenter.Migrations
 
             modelBuilder.Entity("coursesCenter.Models.entities.Instructor", b =>
                 {
+                    b.HasOne("coursesCenter.Models.ApplicationUser", "ApplicationUser")
+                        .WithOne("Instructor")
+                        .HasForeignKey("coursesCenter.Models.entities.Instructor", "ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("coursesCenter.Models.entities.Course", "Course")
                         .WithMany("Instructors")
                         .HasForeignKey("CourseId")
@@ -472,24 +544,82 @@ namespace coursesCenter.Migrations
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.SetNull);
 
+                    b.Navigation("ApplicationUser");
+
                     b.Navigation("Course");
+
+                    b.Navigation("Departrment");
+                });
+
+            modelBuilder.Entity("coursesCenter.Models.entities.Manager", b =>
+                {
+                    b.HasOne("coursesCenter.Models.ApplicationUser", "ApplicationUser")
+                        .WithOne("Manager")
+                        .HasForeignKey("coursesCenter.Models.entities.Manager", "ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("coursesCenter.Models.entities.Departrment", "Departrment")
+                        .WithOne("Manager")
+                        .HasForeignKey("coursesCenter.Models.entities.Manager", "DepartmentId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("ApplicationUser");
 
                     b.Navigation("Departrment");
                 });
 
             modelBuilder.Entity("coursesCenter.Models.entities.Traine", b =>
                 {
+                    b.HasOne("coursesCenter.Models.ApplicationUser", "ApplicationUser")
+                        .WithOne("Traine")
+                        .HasForeignKey("coursesCenter.Models.entities.Traine", "ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("coursesCenter.Models.entities.Departrment", "Departrment")
                         .WithMany("Traines")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.SetNull);
 
+                    b.Navigation("ApplicationUser");
+
                     b.Navigation("Departrment");
+                });
+
+            modelBuilder.Entity("coursesCenter.Models.entities.TraineCourse", b =>
+                {
+                    b.HasOne("coursesCenter.Models.entities.Course", "Course")
+                        .WithMany("Trainecourses")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("coursesCenter.Models.entities.Traine", "Traine")
+                        .WithMany("TraineCourses")
+                        .HasForeignKey("TraineId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Traine");
+                });
+
+            modelBuilder.Entity("coursesCenter.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Instructor");
+
+                    b.Navigation("Manager");
+
+                    b.Navigation("Traine");
                 });
 
             modelBuilder.Entity("coursesCenter.Models.entities.Course", b =>
                 {
                     b.Navigation("Instructors");
+
+                    b.Navigation("Trainecourses");
 
                     b.Navigation("courseResults");
                 });
@@ -500,12 +630,16 @@ namespace coursesCenter.Migrations
 
                     b.Navigation("Instructors");
 
+                    b.Navigation("Manager");
+
                     b.Navigation("Traines");
                 });
 
             modelBuilder.Entity("coursesCenter.Models.entities.Traine", b =>
                 {
                     b.Navigation("CourseResults");
+
+                    b.Navigation("TraineCourses");
                 });
 #pragma warning restore 612, 618
         }

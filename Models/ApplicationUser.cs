@@ -7,5 +7,6 @@ namespace coursesCenter.Models
     {
         public Traine? Traine{ get; set; }
         public Instructor? Instructor { get; set; }
+        public Manager? Manager { get; set; }
     }
 }

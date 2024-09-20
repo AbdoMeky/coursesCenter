@@ -13,6 +13,7 @@ namespace coursesCenter.Models.data
         public DbSet<Instructor> instructors { get; set; }
         public DbSet<Traine> Traines { get; set; }
         public DbSet<TraineCourse> TraineCourses { get; set; }
+        public DbSet<Manager>Managers { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

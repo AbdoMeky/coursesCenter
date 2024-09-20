@@ -1,0 +1,11 @@
+﻿@model List<Departrment>
+<div>
+    <h1>our depatrments is</h1>
+    <ul>
+        @foreach (var department in Model)
+        {
+            <li>@department.Name</li>
+            <br />
+        }
+    </ul>
+</div>

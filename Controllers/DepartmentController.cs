@@ -1,6 +1,7 @@
 ﻿using coursesCenter.Models.data;
 using coursesCenter.Models.entities;
 using coursesCenter.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace coursesCenter.Controllers
@@ -12,12 +13,22 @@ namespace coursesCenter.Controllers
         {
             DepartmentRepo=_DepartmentRepo;
         }
+        [Authorize(Roles = "Manager")]
         public IActionResult Index()
         {
             var dapartments = DepartmentRepo.GetAll();
             if(dapartments.Count > 0)
             {
                 return View("AllDepartments", dapartments);
+            }
+            return Content("empty");
+        }
+        public IActionResult IndexBeta()
+        {
+            var dapartments = DepartmentRepo.GetAll();
+            if (dapartments.Count > 0)
+            {
+                return View("emptyBeta", dapartments);
             }
             return Content("empty");
         }
@@ -31,12 +42,14 @@ namespace coursesCenter.Controllers
             return View("Details",department);
         }
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Add()
         {
             return View("Add");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Manager")]
         public IActionResult Add(Departrment department)
         {
             if(ModelState.IsValid)
@@ -47,6 +60,7 @@ namespace coursesCenter.Controllers
             return View("Add", department);
         }
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Edit(int Id)
         {
             var department = DepartmentRepo.GetById(Id);
@@ -58,6 +72,7 @@ namespace coursesCenter.Controllers
         }
         [HttpPost]
         [AutoValidateAntiforgeryToken]
+        [Authorize(Roles = "Manager")]
         public IActionResult Edit(Departrment department)
         {
             if (!ModelState.IsValid)
@@ -68,6 +83,7 @@ namespace coursesCenter.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Delete(int Id)
         {
             var department=DepartmentRepo.GetById(Id);
@@ -79,6 +95,7 @@ namespace coursesCenter.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Manager")]
         public IActionResult Delete(Departrment departrment)
         {
             DepartmentRepo.Delete(departrment);

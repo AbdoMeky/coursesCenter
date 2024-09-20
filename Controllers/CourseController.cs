@@ -2,6 +2,7 @@
 using coursesCenter.Models.entities;
 using coursesCenter.Repository;
 using coursesCenter.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -24,10 +25,16 @@ namespace coursesCenter.Controllers
             }
             return Json(false);
         }
+        [Authorize(Roles = "Manager")]
         public IActionResult Index()
         {
             List<DepartmentsWithCourses> deptWithCourse = DepartmentRepo.GetAllIncludeCoursesInDepartmentWithCoursesVM();
             return View("allCourses", deptWithCourse);
+        }
+        public IActionResult IndexBeta()
+        {
+            List<DepartmentsWithCourses> deptWithCourse = DepartmentRepo.GetAllIncludeCoursesInDepartmentWithCoursesVM();
+            return View("IndexBeta", deptWithCourse);
         }
         public ActionResult CoursesWithDeletedDepartment()
         {
@@ -53,6 +60,7 @@ namespace coursesCenter.Controllers
             return View("GetOneCourse", course);
         }
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Add()
         {
             ViewBag.Departments = DepartmentRepo.GetAll();
@@ -60,6 +68,7 @@ namespace coursesCenter.Controllers
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public IActionResult Add(Course course)
         {
             if (ModelState.IsValid)
@@ -78,6 +87,7 @@ namespace coursesCenter.Controllers
             return View("Add", course);
         }
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Edit(string Name)
         {
             var course = CourseRepo.GetByName(Name);
@@ -86,6 +96,7 @@ namespace coursesCenter.Controllers
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public IActionResult Edit(Course course)
         {
             if (ModelState.IsValid)
@@ -101,12 +112,14 @@ namespace coursesCenter.Controllers
             return View("Edit", course);
         }
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Delete(string Name)
         {
             return View("Delete", Name);
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public IActionResult DeleteCourse(string Name)
         {
             CourseRepo.Delete(Name);

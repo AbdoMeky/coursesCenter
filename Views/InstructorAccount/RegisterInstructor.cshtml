@@ -1,0 +1,76 @@
+﻿@model RegisteInstructorViewModel
+@{
+    SelectList deptList = new SelectList(ViewBag.department, "Id", "Name");
+    SelectList courseList = new SelectList(ViewBag.courses, "Id", "Name");
+}
+<form asp-action="RegisterInstructor" asp-controller="InstructorAccount" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="EmailAddress"></label>
+        <input asp-for="EmailAddress" />
+        <span asp-validation-for="EmailAddress"></span>
+    </div>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Address"></label>
+        <input asp-for="Address" />
+        <span asp-validation-for="Address"></span>
+    </div>
+    <div>
+        <label asp-for="Salary"></label>
+        <input asp-for="Salary" />
+        <span asp-validation-for="Salary"></span>
+    </div>
+    <div>
+        <label asp-for="DepartmentId"></label>
+        <select asp-for="DepartmentId" id="daptId" asp-items="deptList" onchange="GetCourse()" class="form-select" aria-label="Default select example">
+            <option value="0">--select course--</option>
+        </select>
+        <span asp-validation-for="DepartmentId" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="CourseId"></label>
+        <select id="CrseId" asp-for="CourseId" asp-items="courseList" class="form-select" aria-label="Default select example">
+            <option value="0">--Select Course--</option>
+        </select>
+        <span asp-validation-for="CourseId" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label asp-for="ConfirmPassword"></label>
+        <input asp-for="ConfirmPassword" />
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <input type="submit" value="registe" />
+</form>
+@section scriptat {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        function GetCourse() {
+            var departmentId = document.getElementById("daptId").value;
+            $.ajax(
+                {
+                    url: "/Course/GetCoursesInDepartment?deptId=" + departmentId,
+                    success: function (result) {
+                        document.getElementById("CrseId").innerHTML = "<option value=\"0\">--Select Course--</option>";
+                        for (let i = 0; i < result.length; i++) {
+                            let course = result[i];
+                            console.log(course.id + " " + course.name);
+                            document.getElementById("CrseId").innerHTML += "<option value=\"" + course.id + "\">" + course.name + "</option>";
+                        }
+                    }
+                }
+            )
+        }
+    </script>
+}

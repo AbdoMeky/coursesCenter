@@ -3,6 +3,7 @@ using coursesCenter.Models.entities;
 using coursesCenter.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Diagnostics;
 
 namespace coursesCenter.Repository
 {
@@ -12,8 +13,10 @@ namespace coursesCenter.Repository
 
         public void Delete(int id)
         {
-            var traineDB = GetById(id);
+            var traineDB = Context.Traines.Include(x=>x.ApplicationUser).FirstOrDefault(x=>x.Id==id);
+            var user =Context.Users.FirstOrDefault(x=>x.Id==traineDB.ApplicationUser.Id);
             Context.Traines.Remove(traineDB);
+            Context.Users.Remove(user);
             Context.SaveChanges();
         }
 
@@ -46,7 +49,20 @@ namespace coursesCenter.Repository
             }
             return traines;
         }
-
+        public OneTraineResultViewModel AllResultOfOne(int id)
+        {
+            var traine = Context.Traines.Include(tran => tran.Departrment).Include(traine => traine.CourseResults).ThenInclude(courseResult => courseResult.Course).FirstOrDefault(x=>x.ApplicationUserId==id);
+            var tran=new OneTraineResultViewModel();
+            tran.Name = traine.Name;
+            tran.Id = traine.Id;
+            tran.Department = traine.Departrment != null ? traine.Departrment.Name : "none";
+            foreach (var res in traine.CourseResults)
+            {
+                tran.Courses.Add(res.Course.Name ?? "none");
+                tran.Result.Add((double)res.Degree);
+            }
+            return tran;
+        }
         public Traine GetById(int id)
         {
             return Context.Traines.FirstOrDefault(t => t.Id == id);

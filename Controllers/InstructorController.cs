@@ -1,6 +1,7 @@
 ﻿using coursesCenter.Models.data;
 using coursesCenter.Models.entities;
 using coursesCenter.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace coursesCenter.Controllers
@@ -18,9 +19,14 @@ namespace coursesCenter.Controllers
             this.departmentRepo = departmentRepo;
             this.courseRepo=courseRepo;
         }
+        [Authorize(Roles = "Manager")]
         public IActionResult Index()
         {
             return View("Index",InstructorRepo.GetAll());
+        }
+        public IActionResult IndexBeta()
+        {
+            return View("IndexBeta", InstructorRepo.GetAll());
         }
         public IActionResult Details(int Id)
         {
@@ -32,6 +38,7 @@ namespace coursesCenter.Controllers
             return View("Details",instructor);
         }
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Add()
         {
             ViewBag.departments=departmentRepo.GetAll();
@@ -40,6 +47,7 @@ namespace coursesCenter.Controllers
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public IActionResult Add(Instructor instructor)
         {
             if (ModelState.IsValid)
@@ -67,6 +75,7 @@ namespace coursesCenter.Controllers
             return View("Add", instructor);
         }
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Edit(int Id)
         {
             var instructor=InstructorRepo.GetById(Id);
@@ -84,6 +93,7 @@ namespace coursesCenter.Controllers
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public IActionResult Edit(Instructor instructor)
         {
             if (ModelState.IsValid)
@@ -114,6 +124,7 @@ namespace coursesCenter.Controllers
             return View("Edit", instructor);
         }
         [HttpGet]
+        [Authorize(Roles = "Manager")]
         public IActionResult Delete(int Id)
         {
             var instructor = InstructorRepo.GetById(Id);
@@ -125,6 +136,7 @@ namespace coursesCenter.Controllers
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public IActionResult DeleteI(int Id)
         {
             InstructorRepo.Delete(Id);
