@@ -1,9 +1,11 @@
 ﻿using coursesCenter.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace coursesCenter.Controllers
 {
+    [Authorize(Roles = "Manager")]
     public class RoleController : Controller
     {
         private readonly RoleManager<IdentityRole<int>> roleManager;
